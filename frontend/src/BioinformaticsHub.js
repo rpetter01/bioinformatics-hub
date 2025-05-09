@@ -162,7 +162,7 @@ const RESOURCES = [
 // Custom store button - would be fetched from database in real implementation
 const STORE_BUTTON = {
   text: "Wear Your Science",
-  url: "https://www.redbubble.com/people/YourStore/shop",
+  url: "https://www.redbubble.com/shop/ap/140714014",
   enabled: true
 };
 
