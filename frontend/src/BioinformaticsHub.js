@@ -172,7 +172,7 @@ export default function BioinformaticsHub() {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedTags, setSelectedTags] = useState([]);
   const [darkMode, setDarkMode] = useState(false);
-  const [storeButton, setStoreButton] = useState(STORE_BUTTON);
+  const [storeButton] = useState(STORE_BUTTON);
   const [activeTab, setActiveTab] = useState('resources'); // Added tab state
 
   const api = useApi(); // Initialize the API hook
