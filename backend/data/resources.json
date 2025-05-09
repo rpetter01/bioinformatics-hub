@@ -1,0 +1,26 @@
+{
+    "resources": [
+      {
+        "id": "alphafold",
+        "name": "AlphaFold",
+        "description": "AI system developed by DeepMind that predicts protein 3D structure from amino acid sequence",
+        "category": "tool",
+        "tags": ["protein structure", "AI", "DeepMind"],
+        "url": "https://alphafold.ebi.ac.uk/",
+        "popularity": 99,
+        "lastUpdated": "2025-04-30",
+        "featured": true
+      },
+      {
+        "id": "genbank",
+        "name": "GenBank",
+        "description": "Comprehensive genetic sequence database with annotated sequences",
+        "category": "database",
+        "tags": ["genetics", "sequence database", "NCBI"],
+        "url": "https://www.ncbi.nlm.nih.gov/genbank/",
+        "popularity": 95,
+        "lastUpdated": "2025-04-23",
+        "featured": true
+      }
+    ]
+  }
