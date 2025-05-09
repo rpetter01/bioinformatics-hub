@@ -6,7 +6,6 @@ const cors = require('cors');
 const helmet = require('helmet');
 const { join } = require('path');
 const fs = require('fs').promises;
-// Add this after other requires but before app initialization
 const connectDB = require('./config/database');
 
 // Create Express app
@@ -16,14 +15,11 @@ const PORT = process.env.PORT || 3001;
 // Middleware
 app.use(helmet());
 app.use(cors({
-  origin: process.env.CORS_ORIGIN || 'http://localhost:3000',
+  origin: process.env.CORS_ORIGIN || '*',
   credentials: true
 }));
-
-
 app.use(express.json());
 
-// Add this after middleware setup but before route verification
 // Connect to MongoDB
 console.log('Inicializando conexão com MongoDB...');
 connectDB()
@@ -32,13 +28,45 @@ connectDB()
   })
   .catch(error => {
     console.error('❌ Erro ao conectar ao MongoDB:', error.message);
-    process.exit(1);
+    // Don't exit in production - server can still run without DB
+    if (process.env.NODE_ENV !== 'production') {
+      process.exit(1);
+    }
   });
 
-// Verificar cada roteador individualmente
+// Root route
+app.get('/', (req, res) => {
+  res.json({
+    name: "Bioinformatics Hub API",
+    version: "1.0.0",
+    status: "online",
+    availableEndpoints: [
+      "/api",
+      "/api/health",
+      "/api/jobs"
+    ]
+  });
+});
+
+// API base route
+app.get('/api', (req, res) => {
+  res.json({ status: "ok", message: "API funcionando" });
+});
+
+// Health check route
+app.get('/api/health', (req, res) => {
+  res.json({ 
+    status: 'ok', 
+    message: 'API funcionando',
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime()
+  });
+});
+
+// Load routes
 console.log('Verificando roteadores...');
 
-let authRoutes, resourcesRoutes, tagsRoutes, configRoutes, analyticsRoutes;
+let authRoutes, resourcesRoutes, tagsRoutes, configRoutes, analyticsRoutes, jobsRoutes;
 
 try {
   authRoutes = require('./routes/auth');
@@ -75,7 +103,6 @@ try {
   console.error('❌ Erro ao carregar analytics routes:', error.message);
 }
 
-// Add this with other route imports
 try {
   jobsRoutes = require('./routes/jobs');
   console.log('✅ Jobs routes carregado com sucesso');
@@ -83,25 +110,7 @@ try {
   console.error('❌ Erro ao carregar jobs routes:', error.message);
 }
 
-// Add this with other route registrations
-if (typeof jobsRoutes === 'function') {
-  app.use('/api/jobs', jobsRoutes);
-}
-
-// Verificar tipos
-console.log('\nVerificando tipos dos roteadores:');
-console.log('- authRoutes:', typeof authRoutes === 'function' ? '✅ função' : '❌ não é função');
-console.log('- resourcesRoutes:', typeof resourcesRoutes === 'function' ? '✅ função' : '❌ não é função');
-console.log('- tagsRoutes:', typeof tagsRoutes === 'function' ? '✅ função' : '❌ não é função');
-console.log('- configRoutes:', typeof configRoutes === 'function' ? '✅ função' : '❌ não é função');
-console.log('- analyticsRoutes:', typeof analyticsRoutes === 'function' ? '✅ função' : '❌ não é função');
-
-// Rota básica de teste
-app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', message: 'API funcionando' });
-});
-
-// Registrar apenas rotas válidas
+// Register valid routes
 if (typeof authRoutes === 'function') {
   app.use('/api/auth', authRoutes);
 }
@@ -122,8 +131,33 @@ if (typeof analyticsRoutes === 'function') {
   app.use('/api/analytics', analyticsRoutes);
 }
 
-// Iniciar servidor
-app.listen(PORT, () => {
+if (typeof jobsRoutes === 'function') {
+  app.use('/api/jobs', jobsRoutes);
+}
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error('Error:', err);
+  res.status(500).json({ error: 'Internal server error' });
+});
+
+// Handle unhandled promise rejections
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('Unhandled Rejection at:', promise, 'reason:', reason);
+});
+
+// Handle uncaught exceptions
+process.on('uncaughtException', (error) => {
+  console.error('Uncaught Exception:', error);
+  // Don't exit process in production
+  if (process.env.NODE_ENV !== 'production') {
+    process.exit(1);
+  }
+});
+
+// Start server - Listen on all interfaces
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`\n✅ Servidor rodando na porta ${PORT}`);
-  console.log(`🔗 Health check: http://localhost:${PORT}/api/health`);
+  console.log(`🔗 Access locally at: http://localhost:${PORT}`);
+  console.log(`🔗 Deployed at: ${process.env.RENDER_EXTERNAL_URL || 'Check Render dashboard'}`);
 });
