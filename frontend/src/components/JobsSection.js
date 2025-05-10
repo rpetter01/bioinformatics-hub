@@ -10,9 +10,6 @@ const JobsSection = ({ darkMode }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filter, setFilter] = useState('all'); // 'all', 'remote', 'onsite'
   
-  // Direct API URL
-  const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
-  
   useEffect(() => {
     let mounted = true; // To prevent setting state on unmounted component
     
@@ -20,6 +17,9 @@ const JobsSection = ({ darkMode }) => {
       try {
         setLoading(true);
         setError(null);
+        
+        // API URL moved inside useEffect
+        const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
         
         const response = await fetch(`${apiUrl}/jobs`);
         if (!response.ok) {
@@ -56,6 +56,9 @@ const JobsSection = ({ darkMode }) => {
     try {
       setLoading(true);
       setError(null);
+      
+      // API URL for search
+      const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
       
       const url = searchTerm 
         ? `${apiUrl}/jobs/search?query=${encodeURIComponent(searchTerm)}`
