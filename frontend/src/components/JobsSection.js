@@ -151,7 +151,10 @@ const JobsSection = ({ darkMode }) => {
       </div>
       
       {loading ? (
-        <div className={`jobs-loading ${darkMode ? 'dark-text' : ''}`}>Loading jobs...</div>
+        <div className={`jobs-loading ${darkMode ? 'dark-text' : ''}`}>
+          <div className="loader"></div>
+          <span>Loading jobs...</span>
+        </div>
       ) : error ? (
         <div className="jobs-error">{error}</div>
       ) : filteredJobs.length === 0 ? (

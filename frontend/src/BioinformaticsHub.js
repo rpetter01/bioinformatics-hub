@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './BioinformaticsHub.css';
-import { useApi } from './services/api'; // Import the API hook
+import { useApi } from './services/api';
 
-// Importing the Jobs component
+// Importing components
 import JobsSection from './components/JobsSection';
+import DonationButton from './components/DonationButton';
+import Newsletter from './components/Newsletter';
 
 // Importando os ícones (usando SVG simples para evitar dependências)
 const Icons = {
@@ -167,9 +169,6 @@ const STORE_BUTTON = {
 };
 
 export default function BioinformaticsHub() {
-
-  console.log('API URL:', process.env.REACT_APP_API_URL);
-  
   const [resources, setResources] = useState(RESOURCES);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -246,6 +245,9 @@ export default function BioinformaticsHub() {
             <p className="header-subtitle">Your directory of bioinformatics resources and jobs</p>
           </div>
           <div className="header-actions">
+            {/* Donation Button - Now in header */}
+            <DonationButton darkMode={darkMode} />
+            
             {/* Store Button */}
             {storeButton.enabled && (
               <a 
@@ -289,6 +291,9 @@ export default function BioinformaticsHub() {
         {/* Resources Content */}
         {activeTab === 'resources' && (
           <>
+            {/* Add Newsletter at the top of resources section */}
+            <Newsletter darkMode={darkMode} />
+            
             {/* Search and filters */}
             <div className="search-container">
               <div className="search-box">
@@ -447,10 +452,17 @@ export default function BioinformaticsHub() {
           </>
         )}
         
-        {/* Jobs Content - NEW */}
+        {/* Jobs Content - Removed donation button from here */}
         {activeTab === 'jobs' && (
           <JobsSection darkMode={darkMode} />
         )}
+        
+        {/* Footer - Removed donation button from here */}
+        <footer className="footer">
+          <div className="footer-content">
+            <p>&copy; {new Date().getFullYear()} Bioinformatics Hub. All rights reserved.</p>
+          </div>
+        </footer>
       </div>
     </div>
   );

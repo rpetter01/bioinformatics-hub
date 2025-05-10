@@ -1,0 +1,32 @@
+{
+    "tools": [
+      {
+        "id": "1",
+        "name": "BLAST (NCBI)",
+        "description": "Basic Local Alignment Search Tool for comparing biological sequence information",
+        "tags": ["sequence alignment", "genomics", "NCBI"],
+        "url": "https://blast.ncbi.nlm.nih.gov/Blast.cgi",
+        "featured": true
+      }
+    ],
+    "databases": [
+      {
+        "id": "2",
+        "name": "GenBank",
+        "description": "Comprehensive genetic sequence database with annotated sequences",
+        "tags": ["genetics", "sequence database", "NCBI"],
+        "url": "https://www.ncbi.nlm.nih.gov/genbank/",
+        "featured": true
+      }
+    ],
+    "courses": [
+      {
+        "id": "4",
+        "name": "EdX: Principles of Biochemistry",
+        "description": "Harvard University course covering fundamental biochemistry concepts",
+        "tags": ["education", "biochemistry", "Harvard"],
+        "url": "https://www.edx.org/learn/biochemistry",
+        "featured": false
+      }
+    ]
+  }

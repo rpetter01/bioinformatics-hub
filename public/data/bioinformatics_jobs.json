@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-05-08 23:33:54",
+  "last_updated": "2025-05-09 11:30:03",
   "job_count": 13,
   "jobs": [
     {
@@ -11,7 +11,194 @@
       "location": "Remote",
       "url": "https://arc.dev/remote-jobs/j/bionano-genomic-data-scientist-m1l9l3ttu2",
       "source": "Arc.dev",
-      "date_scraped": "2025-05-08",
+      "date_scraped": "2025-05-09",
       "jobType": "Remote",
       "description": "Bioinformatics job at Bionano. Visit the link to learn more.",
-      "postedDate": 
+      "postedDate": "2025-05-09T11:29:44.994857",
+      "salary": "Not specified"
+    },
+    {
+      "title": "Data Scientist - Life Sciences",
+      "company": "BIP Portugal",
+      "tags": [
+        "Bioinformatics"
+      ],
+      "location": "Remote",
+      "url": "https://arc.dev/remote-jobs/j/bip-portugal-data-scientist-life-sciences-m0xetzksb1",
+      "source": "Arc.dev",
+      "date_scraped": "2025-05-09",
+      "jobType": "Remote",
+      "description": "Bioinformatics job at BIP Portugal. Visit the link to learn more.",
+      "postedDate": "2025-05-09T11:29:45.105478",
+      "salary": "Not specified"
+    },
+    {
+      "title": "Software Engineer, Knowledge Informatics",
+      "company": "BigR.io",
+      "tags": [
+        "Bioinformatics"
+      ],
+      "location": "Remote",
+      "url": "https://arc.dev/remote-jobs/j/bigrio-software-engineer-knowledge-informatics-m0xgno2px4",
+      "source": "Arc.dev",
+      "date_scraped": "2025-05-09",
+      "jobType": "Remote",
+      "description": "Bioinformatics job at BigR.io. Visit the link to learn more.",
+      "postedDate": "2025-05-09T11:29:45.195534",
+      "salary": "Not specified"
+    },
+    {
+      "title": "Software Engineer in Test",
+      "company": "Orion Innovation Turkey",
+      "tags": [
+        "Bioinformatics"
+      ],
+      "location": "Remote",
+      "url": "https://arc.dev/remote-jobs/j/orion-innovation-software-engineer-in-test-laod82w7yu",
+      "source": "Arc.dev",
+      "date_scraped": "2025-05-09",
+      "jobType": "Remote",
+      "description": "Bioinformatics job at Orion Innovation Turkey. Visit the link to learn more.",
+      "postedDate": "2025-05-09T11:29:46.047858",
+      "salary": "Not specified"
+    },
+    {
+      "title": "Senior Data Scientist, Brain Tumor Insitute",
+      "company": "TieTalent",
+      "tags": [
+        "Bioinformatics"
+      ],
+      "location": "Remote",
+      "url": "https://arc.dev/remote-jobs/j/tietalent-senior-data-scientist-brain-tumor-insitute-lzlu3p88d6",
+      "source": "Arc.dev",
+      "date_scraped": "2025-05-09",
+      "jobType": "Remote",
+      "description": "Bioinformatics job at TieTalent. Visit the link to learn more.",
+      "postedDate": "2025-05-09T11:29:46.136325",
+      "salary": "Not specified"
+    },
+    {
+      "title": "Director of Marketing \u2013 QIAGEN Digital Insights",
+      "company": "QIAGEN",
+      "tags": [
+        "Bioinformatics"
+      ],
+      "location": "Remote",
+      "url": "https://arc.dev/remote-jobs/j/qiagen-director-of-marketing-qiagen-digital-insights-lz2ufkxzac",
+      "source": "Arc.dev",
+      "date_scraped": "2025-05-09",
+      "jobType": "Remote",
+      "description": "Bioinformatics job at QIAGEN. Visit the link to learn more.",
+      "postedDate": "2025-05-09T11:29:46.234249",
+      "salary": "Not specified"
+    },
+    {
+      "title": "Global Marketing Program Manager (m/f/d) - Biomolecular Analysis",
+      "company": "Agilent Technologies",
+      "tags": [
+        "Bioinformatics"
+      ],
+      "location": "Remote",
+      "url": "https://arc.dev/remote-jobs/j/agilent-technologies-global-marketing-program-manager-m-f-d-biomolecular-analysis-lfoa69oks1",
+      "source": "Arc.dev",
+      "date_scraped": "2025-05-09",
+      "jobType": "Remote",
+      "description": "Bioinformatics job at Agilent Technologies. Visit the link to learn more.",
+      "postedDate": "2025-05-09T11:29:46.311028",
+      "salary": "Not specified"
+    },
+    {
+      "title": "Bioinformatics scientist",
+      "company": "Genomines",
+      "tags": [
+        "Bioinformatics",
+        "Scientist"
+      ],
+      "location": "Paris, Ilha de Fran\u00e7a, Fran\u00e7a",
+      "url": "https://fr.linkedin.com/jobs/view/bioinformatics-scientist-at-genomines-3790082974",
+      "source": "LinkedIn",
+      "date_scraped": "2025-05-09",
+      "jobType": "Full-time",
+      "description": "Bioinformatics job at Genomines. Posted: H\u00e1 1 ano. Visit the link to learn more.",
+      "postedDate": "2023-12-19T00:00:00",
+      "salary": "Not specified"
+    },
+    {
+      "title": "Bioinformatics Scientist, DNAnexus Care",
+      "company": "DNAnexus",
+      "tags": [
+        "Bioinformatics",
+        "Scientist"
+      ],
+      "location": "Praga, Praga, Ch\u00e9quia",
+      "url": "https://cz.linkedin.com/jobs/view/bioinformatics-scientist-dnanexus-care-at-dnanexus-4215143465",
+      "source": "LinkedIn",
+      "date_scraped": "2025-05-09",
+      "jobType": "Full-time",
+      "description": "Bioinformatics job at DNAnexus. Posted: H\u00e1 1 semana. Visit the link to learn more.",
+      "postedDate": "2025-04-25T00:00:00",
+      "salary": "Not specified"
+    },
+    {
+      "title": "Bioinformatician engineer H/F",
+      "company": "Institut Curie",
+      "tags": [
+        "Bioinformatics",
+        "Engineer"
+      ],
+      "location": "Paris, Ilha de Fran\u00e7a, Fran\u00e7a",
+      "url": "https://fr.linkedin.com/jobs/view/bioinformatician-engineer-h-f-at-institut-curie-4216676894",
+      "source": "LinkedIn",
+      "date_scraped": "2025-05-09",
+      "jobType": "Full-time",
+      "description": "Bioinformatics job at Institut Curie. Posted: H\u00e1 1 semana. Visit the link to learn more.",
+      "postedDate": "2025-04-28T00:00:00",
+      "salary": "Not specified"
+    },
+    {
+      "title": "Computational Biologist - Protein Engineering",
+      "company": "Tamarind Bio",
+      "tags": [
+        "Bioinformatics"
+      ],
+      "location": "San Francisco, Calif\u00f3rnia, Estados Unidos",
+      "url": "https://www.linkedin.com/jobs/view/computational-biologist-protein-engineering-at-tamarind-bio-4033649149",
+      "source": "LinkedIn",
+      "date_scraped": "2025-05-09",
+      "jobType": "Full-time",
+      "description": "Bioinformatics job at Tamarind Bio. Posted: H\u00e1 7 meses. Visit the link to learn more.",
+      "postedDate": "2024-09-25T00:00:00",
+      "salary": "Not specified"
+    },
+    {
+      "title": "Consultant",
+      "company": "Infosys",
+      "tags": [
+        "Bioinformatics"
+      ],
+      "location": "Bangalore, Carnataca, \u00cdndia",
+      "url": "https://in.linkedin.com/jobs/view/consultant-at-infosys-4206813005",
+      "source": "LinkedIn",
+      "date_scraped": "2025-05-09",
+      "jobType": "Full-time",
+      "description": "Bioinformatics job at Infosys. Posted: . Visit the link to learn more.",
+      "postedDate": "2025-04-11T00:00:00",
+      "salary": "Not specified"
+    },
+    {
+      "title": "",
+      "company": "",
+      "tags": [
+        "Bioinformatics"
+      ],
+      "location": "",
+      "url": "https://uk.linkedin.com/jobs/view/data-scientist-msat-at-orchard-therapeutics-u-s-4212190552",
+      "source": "LinkedIn",
+      "date_scraped": "2025-05-09",
+      "jobType": "Full-time",
+      "description": "Bioinformatics job at . Posted: . Visit the link to learn more.",
+      "postedDate": "2025-04-17T00:00:00",
+      "salary": "Not specified"
+    }
+  ]
+}
