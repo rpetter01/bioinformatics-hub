@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useApi } from '../services/api';
 import './JobsSection.css';
 
 const JobsSection = ({ darkMode }) => {
-
   console.log('API URL in JobsSection:', process.env.REACT_APP_API_URL);
   
   const [jobs, setJobs] = useState([]);
@@ -12,40 +10,64 @@ const JobsSection = ({ darkMode }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filter, setFilter] = useState('all'); // 'all', 'remote', 'onsite'
   
-  const api = useApi();
+  // Direct API URL
+  const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
   
   useEffect(() => {
+    let mounted = true; // To prevent setting state on unmounted component
+    
     const fetchJobs = async () => {
       try {
         setLoading(true);
-        const jobsData = await api.jobs.getJobs();
-        setJobs(jobsData);
         setError(null);
+        
+        const response = await fetch(`${apiUrl}/jobs`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch jobs');
+        }
+        
+        const jobsData = await response.json();
+        console.log('Jobs fetched:', jobsData.length);
+        
+        if (mounted) {
+          setJobs(jobsData);
+          setLoading(false);
+        }
       } catch (err) {
         console.error('Error fetching jobs:', err);
-        setError('Failed to load jobs. Please try again later.');
-      } finally {
-        setLoading(false);
+        if (mounted) {
+          setError('Failed to load jobs. Please try again later.');
+          setLoading(false);
+        }
       }
     };
     
     fetchJobs();
-  }, []); // FIXED: Empty array to prevent infinite re-renders
+    
+    // Cleanup function
+    return () => {
+      mounted = false;
+    };
+  }, []); // Empty dependency array - runs only once
   
   const handleSearch = async (e) => {
     e.preventDefault();
-    if (!searchTerm) {
-      // If search is empty, fetch all jobs
-      const jobsData = await api.jobs.getJobs();
-      setJobs(jobsData);
-      return;
-    }
     
     try {
       setLoading(true);
-      const results = await api.jobs.searchJobs(searchTerm);
-      setJobs(results);
       setError(null);
+      
+      const url = searchTerm 
+        ? `${apiUrl}/jobs/search?query=${encodeURIComponent(searchTerm)}`
+        : `${apiUrl}/jobs`;
+        
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error('Search failed');
+      }
+      
+      const results = await response.json();
+      setJobs(results);
     } catch (err) {
       console.error('Error searching jobs:', err);
       setError('Search failed. Please try again.');
@@ -70,15 +92,9 @@ const JobsSection = ({ darkMode }) => {
     }).format(date);
   };
   
-  // Track job clicks for analytics
   const handleJobClick = (job) => {
-    try {
-      if (api.jobs.recordJobClick) {
-        api.jobs.recordJobClick(job._id, job.title, job.company);
-      }
-    } catch (error) {
-      console.log('Analytics error (non-critical):', error);
-    }
+    // Analytics can be added later
+    console.log('Job clicked:', job.title);
   };
   
   return (
@@ -139,8 +155,8 @@ const JobsSection = ({ darkMode }) => {
         <div className={`jobs-empty ${darkMode ? 'dark-text' : ''}`}>No jobs found matching your criteria.</div>
       ) : (
         <div className="jobs-list">
-          {filteredJobs.map((job, index) => (
-            <div key={`${job.url}-${index}`} className={`job-card ${darkMode ? 'dark-card' : ''}`}>
+          {filteredJobs.map((job) => (
+            <div key={job._id || job.url} className={`job-card ${darkMode ? 'dark-card' : ''}`}>
               <h3 className="job-title">
                 <a 
                   href={job.url} 
@@ -163,7 +179,7 @@ const JobsSection = ({ darkMode }) => {
               </div>
               <div className="job-tags">
                 {job.tags && job.tags.map((tag, tagIndex) => (
-                  <span key={tagIndex} className={`job-tag ${darkMode ? 'dark-tag' : ''}`}>{tag}</span>
+                  <span key={`${job._id}-${tagIndex}`} className={`job-tag ${darkMode ? 'dark-tag' : ''}`}>{tag}</span>
                 ))}
               </div>
               <a 
@@ -177,7 +193,7 @@ const JobsSection = ({ darkMode }) => {
               </a>
               
               {/* Ad placeholder for future Google AdSense */}
-              {index === 2 && (
+              {filteredJobs.indexOf(job) === 2 && (
                 <div className={`ad-placeholder ${darkMode ? 'dark-placeholder' : ''}`} id="job-list-ad">
                   {/* Google AdSense will be added here later */}
                   <span className={darkMode ? 'dark-text-secondary' : ''}>Advertisement</span>
