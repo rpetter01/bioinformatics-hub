@@ -167,6 +167,9 @@ const STORE_BUTTON = {
 };
 
 export default function BioinformaticsHub() {
+
+  console.log('API URL:', process.env.REACT_APP_API_URL);
+  
   const [resources, setResources] = useState(RESOURCES);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');

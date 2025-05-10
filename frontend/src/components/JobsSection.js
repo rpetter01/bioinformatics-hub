@@ -3,6 +3,9 @@ import { useApi } from '../services/api';
 import './JobsSection.css';
 
 const JobsSection = ({ darkMode }) => {
+
+  console.log('API URL in JobsSection:', process.env.REACT_APP_API_URL);
+  
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
