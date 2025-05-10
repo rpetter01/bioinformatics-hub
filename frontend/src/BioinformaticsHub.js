@@ -241,7 +241,10 @@ export default function BioinformaticsHub() {
         {/* Header */}
         <header className="header">
           <div className="header-left">
-            <h1 className="header-title">Bioinformatics Hub</h1>
+            <h1 className="header-title">
+              <span className="title-bio">Bioinformatics</span>
+              <span className="title-hub">Hub</span>
+            </h1>
             <p className="header-subtitle">Your directory of bioinformatics resources and jobs</p>
           </div>
           <div className="header-actions">

@@ -23,6 +23,12 @@
     --dark-tag-bg: #343a40;
     --dark-featured: #ffc107;
     --dark-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    
+    /* Title Brand Colors */
+    --light-title-bio: #1E3A5F;
+    --light-title-hub: #17A2B8;
+    --dark-title-bio: #7BA7D7;
+    --dark-title-hub: #1FB6CC;
   }
   
   /* Base Styles */
@@ -77,11 +83,23 @@
     font-size: 2.5rem;
     font-weight: 700;
     margin: 0 0 8px 0;
-    color: var(--light-text-primary);
   }
   
-  .app.dark-mode .header-title {
-    color: var(--dark-text-primary);
+  /* Title Brand Colors */
+  .header-title .title-bio {
+    color: var(--light-title-bio);
+  }
+  
+  .header-title .title-hub {
+    color: var(--light-title-hub);
+  }
+  
+  .app.dark-mode .header-title .title-bio {
+    color: var(--dark-title-bio);
+  }
+  
+  .app.dark-mode .header-title .title-hub {
+    color: var(--dark-title-hub);
   }
   
   .header-subtitle {
