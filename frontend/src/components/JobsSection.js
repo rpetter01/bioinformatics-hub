@@ -30,7 +30,7 @@ const JobsSection = ({ darkMode }) => {
     };
     
     fetchJobs();
-  }, [api.jobs]);
+  }, []); // FIXED: Empty array to prevent infinite re-renders
   
   const handleSearch = async (e) => {
     e.preventDefault();
